@@ -1,12 +1,21 @@
+# circleci 언어버전
 version: 2
+# 작업 목록
 jobs:
+  # 작업 이름
   build:
+    # docker 가상화 이미지 설정
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:12
+    # 배포시 사용할 스크립트
     steps:
       - checkout
-      - run: npm install
-      - run: npm run build
+      - run:
+          name: 패키지 다운로드
+          command: npm install
+      - run:
+          name: 빌드
+          command: npm run build
 workflows:
   version: 2
   build:
