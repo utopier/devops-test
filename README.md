@@ -465,6 +465,7 @@
     - Github App 추가
       - Apps 에서 Github 추가
     - /github help
+      - /github subscribe 
 ## 12. CircleCI ( with docker )
 
 ## 13. Build
