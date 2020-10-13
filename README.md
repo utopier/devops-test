@@ -462,7 +462,9 @@
     - Jira에서 Slack 채널별 알림 설정
       - /jira manage
   - **Github 연동**
-
+    - Github App 추가
+      - Apps 에서 Github 추가
+    - /github help
 ## 12. CircleCI ( with docker )
 
 ## 13. Build
