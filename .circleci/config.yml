@@ -1,4 +1,4 @@
-# circleci 언어버전
+# circleci 버전
 version: 2
 # 작업 목록
 jobs:
@@ -10,14 +10,40 @@ jobs:
     # 배포시 사용할 스크립트
     steps:
       - checkout
+      # cache 복원, 작업 실행전 다른 job에서 save_cache로 캐시된 거 사용
+      - restore_cache:
+          keys:
+            - dep-bundle-{{ checksum "package.json" }}
       - run:
           name: 패키지 다운로드
           command: npm install
+      # cache 저장, 캐싱으로 저장된 내용은 다른 job에서도 사용됨
+      # dependency 라이브러리가 저장되는 node_modules폴더를 캐싱해두기
+      - save_cache:
+          key: dep-bundle-{{ checksum "package.json" }}
+            - /repo/node_modules
+      - run:
+          name: Linting 테스트 with eslint
+          command: npm run lint
+      - run:
+          name: 코드 테스트 with jest, react-testing-library
+          command: npm run test
       - run:
           name: 빌드
           command: npm run build
+      - run:
+          name: Cypress Test
+          command: npm 
+      - run:
+          name: aws serverless deploy
+          command: serverless depoly
 workflows:
   version: 2
   build:
     jobs:
-      - build
+      - build:
+          # filters, 현재 job이 실행되기 위한 조건, ex: github 특정 브랜치만 실행할 수 있도록 제한
+          filters:
+            branches:
+              only: master
+          # requires, 현재 job을 수행하기 이전에 선행되어야할 작업 목록

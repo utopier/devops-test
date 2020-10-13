@@ -1,0 +1,16 @@
+service: devops-test
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-northeast-2
+plugins:
+  - serverless-nextjs-plugin
+custom:
+  name: devops-test
+  serverless-nextjs:
+    assetsBucketName: 'utopier-devops-test-dev'
+    coludFront: true
+package:
+  exclude:
+    - ./**
