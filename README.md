@@ -465,12 +465,49 @@
     - Github App 추가
       - Apps 에서 Github 추가
     - /github help
-      - /github subscribe 
+      - /github subscribe owener/repo commits:all
+
 ## 12. CircleCI ( with docker )
+1. CICD란
+  - 애플리케이션 개발단계를 자동화해서 짧은 주기로 고객에게 제공하는 방법
+  - 지속적인 통합(Continuous Integration)
+    - 새로운 코드 변경에 대한 지속적인 빌드, 테스트가 되어 공유 리포지토리에 통합
+    - Build -> Test -> Merge
+  - 지속적인 서비스 제공(Continuous Delivery)
+    - 버그 테스트를 거쳐 리포지토리에 자동으로 업로드되어 애플리케이션을 프로덕션 환경으로 배포할 수 있음
+  - 지속적인 배포(Continuous Deployment)
+    - 리포지토리에서 고객이 사용 가능한 프로덕션 환경까지 자동으로 릴리즈
+  - 개발 및 운영팀의 인테그레이션 헬을 해결하기 위한 방법
+2. CircleCI 기본 사용법
+  - circleci 공식사이트에서 github ID로 로그인 
+  - 관리할 프로젝트의 Github repo 선택
+  - 루트 위치에 .circleci/config.yml 생성
+3. config.yml
+  - version
+  - orbs
+  - jobs
+    - docker
+    - executor
+    - steps
+      - checkout
+      - run
+        - name
+        - command
+      - restore_cache
+      - save_cache
+  - workflow
+    - version
+      - jobs
+        - filter
+        - requires
+---
 
-## 13. Build
+## 13. Build ( babel, webpack, next.config )
+1. babel
+2. webpack
+3. next.config
 
-## 14. Testing(linting, jest, react-testing-library, cypress)
+## 14. Testing(eslint , jest, react-testing-library, cypress)
 1. jest
   - **Matchers**
     1. Common
