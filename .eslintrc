@@ -18,6 +18,23 @@
   "rules": {
     "react/react-in-jsx-scope":"off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx",".ts",".tsx"] }],
-    "@typescript-eslint/explicit-module-boundary-types": "off"
-  }
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "import/no-unresolved":"off",
+    "import/extensions":"off",
+    "react/jsx-props-no-spreading":"off",
+    "prettier/prettier": [
+      "error",
+      {
+          "endOfLine": "auto"
+      }
+  ]
+  },
+  "overrides": [
+    {
+      "files":["component/","pages/"],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
 }

@@ -1,7 +1,26 @@
+import Link from 'next/link';
+
+/* eslint "jsx-a11y/anchor-is-valid":"off" */
 const Home = () => {
 	return (
 		<>
-			<h1>Home</h1>
+			<ul>
+				<li>
+					<Link href="/">
+						<a>Home</a>
+					</Link>
+				</li>
+				<li>
+					<Link href="/about">
+						<a>About</a>
+					</Link>
+				</li>
+				<li>
+					<Link href="/todoapp">
+						<a>TodoApp</a>
+					</Link>
+				</li>
+			</ul>
 		</>
 	);
 };

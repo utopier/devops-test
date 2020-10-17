@@ -27,17 +27,20 @@ jobs:
           paths:  
             - ./node_modules
       - run:
-          name: Linting 테스트 with eslint
+          name: Linting with eslint
           command: npm run lint
       - run:
-          name: 코드 테스트 with jest, react-testing-library
-          command: npm run test
+          name: Testing with jest
+          command: npm run jest-test
+      - run:
+          name: Testing with react-testing-library
+          command: npm run react-component-test
       - run:
           name: 빌드
           command: npm run build
       - run:
           name: Cypress Test
-          command: npm 
+          command: npm run test:e2e
 #      - run:
 #          name: aws serverless deploy
 #          command: serverless depoly

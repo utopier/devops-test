@@ -2,4 +2,7 @@
 .circleci
 .next
 .serverless
+/.storybook
 /cypress
+/jest
+/component/**/*.test.js
