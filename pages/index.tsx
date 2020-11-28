@@ -1,28 +1,12 @@
-import Link from 'next/link';
+import TodoApp from '../component/TodoApp/TodoApp'
 
 /* eslint "jsx-a11y/anchor-is-valid":"off" */
 const Home = () => {
-	return (
-		<>
-			<ul>
-				<li>
-					<Link href="/">
-						<a>Home</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/about">
-						<a>About</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/todoapp">
-						<a>TodoApp</a>
-					</Link>
-				</li>
-			</ul>
-		</>
-	);
+  return (
+    <>
+      <TodoApp />
+    </>
+  );
 };
 
 export default Home;
